@@ -7,6 +7,6 @@
         public string? Name { get; set; }
         public string? Description { get; set; }
         public bool Done { get; set; }
-        public List<CardViewModel> Cards { get; set; }
+        public List<TextCardViewModel> Cards { get; set; }
     }
 }

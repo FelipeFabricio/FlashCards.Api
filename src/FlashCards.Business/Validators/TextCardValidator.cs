@@ -1,11 +1,11 @@
-﻿using FlashCards.Business.Models;
+﻿using FlashCards.Business.Models.Cards;
 using FluentValidation;
 
 namespace FlashCards.Business.Validators
 {
-    public class CardValidator : AbstractValidator<Card>
+    public class TextCardValidator : AbstractValidator<TextCard>
     {
-        public CardValidator()
+        public TextCardValidator()
         {
             RuleFor(d => d.Frontside)
                 .NotNull().WithMessage("Esse campo é obrigatório.")

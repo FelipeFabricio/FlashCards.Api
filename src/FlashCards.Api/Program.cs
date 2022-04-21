@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.ResolveDependencies();
 builder.Services.AddDbContext<FlashCardContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging();
 });
 
 var app = builder.Build();

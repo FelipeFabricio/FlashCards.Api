@@ -11,7 +11,7 @@ namespace FlashCards.Api.Configurations
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                .Enrich.WithCorrelationId()
+                //.Enrich.WithCorrelationId()
                 .Enrich.WithExceptionDetails()
                 .Enrich.WithProperty("ApplicationName", "FlashCards")
                 //.Filter.ByExcluding(Matching.FromSource("Microsoft.AspNetCore.StaticFiles"))

@@ -1,4 +1,6 @@
-﻿namespace FlashCards.Business.Models
+﻿using FlashCards.Business.Models.Cards;
+
+namespace FlashCards.Business.Models
 {
     public class Deck
     {
@@ -7,6 +9,6 @@
         public string? Name { get; set; }
         public string? Description { get; set; }
         public bool Done { get; set; }
-        public IEnumerable<Card> Cards { get; set; }
+        public IEnumerable<TextCard> Cards { get; set; }
     }
 }

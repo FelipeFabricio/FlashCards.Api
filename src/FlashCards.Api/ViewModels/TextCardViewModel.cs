@@ -1,6 +1,6 @@
 ﻿namespace FlashCards.Api.ViewModels
 {
-    public class CardViewModel
+    public class TextCardViewModel
     {
         public int CardId { get; set; }
         public int DeckId { get; set; }

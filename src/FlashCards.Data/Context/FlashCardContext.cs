@@ -1,4 +1,5 @@
 ﻿using FlashCards.Business.Models;
+using FlashCards.Business.Models.Cards;
 using Microsoft.EntityFrameworkCore;
 
 namespace FlashCards.Data.Context
@@ -6,7 +7,8 @@ namespace FlashCards.Data.Context
     public class FlashCardContext : DbContext
     {
         public DbSet<Deck> Decks { get; set; }
-        public DbSet<Card> Cards { get; set; }
+        public DbSet<TextCard> TextCards { get; set; }
+        public DbSet<MultipleChoiceCard> MultipleChoiceCards { get; set; }
         public DbSet<Memorization> Memorizations { get; set; }
         public DbSet<User> Users { get; set; }
 
@@ -53,41 +55,41 @@ namespace FlashCards.Data.Context
                 .HasColumnType("int");
             #endregion
 
-            #region Card       
-            modelBuilder.Entity<Card>()
+            #region TextCard       
+            modelBuilder.Entity<TextCard>()
                 .HasKey(c => c.CardId);
 
-            modelBuilder.Entity<Card>()
+            modelBuilder.Entity<TextCard>()
                 .HasOne(c => c.Deck)
                 .WithMany(d => d.Cards)
                 .HasForeignKey(c => c.DeckId)
                 .IsRequired();
 
-            modelBuilder.Entity<Card>()
+            modelBuilder.Entity<TextCard>()
                 .Property(c => c.CardId)
                 .HasColumnName("CardId")
                 .HasColumnType("int")
                 .IsRequired();
 
-            modelBuilder.Entity<Card>()
+            modelBuilder.Entity<TextCard>()
                 .Property(c => c.DeckId)
                 .HasColumnName("DeckId")
                 .HasColumnType("int")
                 .IsRequired();
 
-            modelBuilder.Entity<Card>()
+            modelBuilder.Entity<TextCard>()
                 .Property(c => c.Frontside)
                 .HasColumnName("Frontside")
                 .HasColumnType("varchar(500)")
                 .IsRequired();
 
-            modelBuilder.Entity<Card>()
+            modelBuilder.Entity<TextCard>()
                 .Property(c => c.Backside)
                 .HasColumnName("Backside")
                 .HasColumnType("varchar(500)")
                 .IsRequired();
 
-            modelBuilder.Entity<Card>()
+            modelBuilder.Entity<TextCard>()
                 .Property(c => c.MemorizationId)
                 .HasColumnName("MemorizationId")
                 .HasColumnType("int")

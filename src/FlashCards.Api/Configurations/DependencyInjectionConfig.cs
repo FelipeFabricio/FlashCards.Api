@@ -9,7 +9,8 @@ namespace FlashCards.Api.Configurations
         {
             service.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             service.AddScoped<IDeckRepository, DeckRepository>();
-            service.AddScoped<ICardRepository, CardRepository>();
+            service.AddScoped<ITextCardRepository, TextCardRepository>();
+            service.AddScoped<IMultipleChoiceCardRepository, MultipleChoiceCardRepository>();
             service.AddScoped<IMemorizationRepository, MemorizationRepository>();
 
             return service;
